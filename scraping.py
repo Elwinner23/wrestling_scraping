@@ -31,6 +31,9 @@ wb = Workbook()
 ws = wb.active
 for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
     row = [item.text for item in table_div.find_elements(By.CLASS_NAME,'text')]
-    data.append(row)
-print(data)    
+    data.append(row) 
+        
+        
 # wb.save('wrestling_data.xlsx')
+for i in range(0,len(data)):
+    print(i)
