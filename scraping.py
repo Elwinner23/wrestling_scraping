@@ -1,10 +1,13 @@
-import os
-
 from selenium import webdriver
-os.environ['PATH'] += r'C:\MozilaDrivers'
-years = ['2018', '2019', '2020', '2021', '2022']
+from openpyxl import Workbook
+from selenium.webdriver.common.by import By
+import pandas as pd
+
 driver = webdriver.Firefox()
-driver.get('https://uww.org/events')
+url = 'https://uww.org/events'
+driver.get(url)
+years = ['2018', '2019', '2020', '2021', '2022']
+
 #tournament_select = driver.find_element(By.CLASS_NAME, 'waf-select-box')
 #tournament_select.click()
 world_championship = driver.find_element(By.XPATH, '//*[@id="b26d198b-4b14-4220-b7bb-481ec09a8f1d"]/div/div/div[2]/div[1]/div/div[2]/div[1]/div[5]/div[1]/p[2][contains(text(), "2023")]')
@@ -14,3 +17,22 @@ for li in select_list.find_elements(By.TAG_NAME, 'li'):
     button = li.find_element(By.TAG_NAME, 'button')
     if button.text in years:
         button.click()
+
+
+main_table = driver.find_element(By.CLASS_NAME,'table-responsive')
+table_wrapper = main_table.find_element(By.CLASS_NAME,'table-wrapper')
+element_table = table_wrapper.find_element(By.XPATH,'/html/body/div/div/div/div/main/section[4]/section[3]/div/div/div/div/section/div/div/div[2]/div[2]/div[1]')
+
+# Within the table, find all elements with the class name 'event-title'
+
+data = []
+wb = Workbook()
+ws = wb.active
+for table_div in main_table:
+    for index,div in enumerate(element_table.find_elements(By.CLASS_NAME,'table-body'),start = 1):
+        values = [item.text for item in div.find_elements(By.CLASS_NAME, 'text')]
+        excel = pd.Dataframe(values)
+        
+        ws.cell(row=index, column=1, value=excel)
+
+wb.save('wrestling_data.xlsx')
