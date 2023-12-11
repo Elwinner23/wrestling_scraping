@@ -27,13 +27,26 @@ element_table = table_wrapper.find_element(By.XPATH,'/html/body/div/div/div/div/
 # Within the table, find all elements with the class name 'event-title'
 
 data = []
+video_link = []
 wb = Workbook()
 ws = wb.active
 for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
     row = [item.text for item in table_div.find_elements(By.CLASS_NAME,'text')]
     data.append(row) 
-        
+# elem = driver.find_element(By.CLASS_NAME,'table-body')
+# link = elem[0].get_attribute('href')    
         
 # wb.save('wrestling_data.xlsx')
-for i in range(0,len(data)):
-    print(i)
+    
+def split_list(chunk_size):
+    chunks = []
+    for i in range(0,len(data)):
+        for j in range(0, len(data[i]), chunk_size):
+            chunk = data[i][j:j + chunk_size]
+            chunks.append(chunk)
+    print(chunks)
+
+chunk_size = 5
+# split_list(chunk_size)
+print(link)
+   
