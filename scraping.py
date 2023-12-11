@@ -9,7 +9,7 @@ url = 'https://uww.org/events'
 driver.get(url)
 years = ['2018', '2019', '2020', '2021', '2022']
 
-#tournament_select = driver.find_element(By.CLASS_NAME, 'waf-select-box')
+tournament_select = driver.find_element(By.CLASS_NAME, 'filter-group')
 #tournament_select.click()
 world_championship = driver.find_element(By.XPATH, '//*[@id="b26d198b-4b14-4220-b7bb-481ec09a8f1d"]/div/div/div[2]/div[1]/div/div[2]/div[1]/div[5]/div[1]/p[2][contains(text(), "2023")]')
 world_championship.click()
@@ -27,7 +27,7 @@ element_table = table_wrapper.find_element(By.XPATH,'/html/body/div/div/div/div/
 # Within the table, find all elements with the class name 'event-title'
 
 data = []
-video_link = []
+page_link = []
 wb = Workbook()
 ws = wb.active
 # web sehfeden datanin liste elave edilmesi
@@ -37,8 +37,8 @@ for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
 # Video linklerin liste yigilmasi   
 for a in driver.find_elements(By.CLASS_NAME,'table-row'):
     link = a.get_attribute('href')
-    video_link.append(link)
-print(video_link)    
+    page_link.append(link)
+print(page_link)    
     
 # wb.save('wrestling_data.xlsx')
 # var olan datani tek-tek listlere ayirmaq   
