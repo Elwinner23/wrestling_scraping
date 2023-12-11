@@ -27,10 +27,17 @@ element_table = table_wrapper.find_element(By.XPATH,'/html/body/div/div/div/div/
 
 data = []
 video_link = []
-
+page_link = []
 for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
     row = [item.text for item in table_div.find_elements(By.CLASS_NAME,'text')]
     data.append(row) 
+for a in driver.find_elements(By.CLASS_NAME,'table-row'):
+    link = a.get_attribute('href')
+    if link == None:
+        continue
+    else:
+        page_link.append(link)
+print(page_link)  
 # elem = driver.find_element(By.CLASS_NAME,'table-body')
 # link = elem[0].get_attribute('href')    
         
@@ -45,7 +52,7 @@ def split_list(chunk_size):
     return chunks
 
 chunk_size = 5
-def dataset():
+def dataset(pl):
     tournament_name = []
     location = []
     type = []
@@ -58,8 +65,10 @@ def dataset():
         type.append(data[2])
         age.append(data[3])
         style.append(data[4])
-    df = pd.DataFrame({'tournament_name' : tournament_name, 'location' : location, 'type' : type, 'age' : age, 'style' : style})
+    df = pd.DataFrame({'tournament_name' : tournament_name, 'location' : location, 'type' : type, 'age' : age, 'style' : style, 'page_link' : pl})
     return df
 
-df = dataset()
+df = dataset(page_link)
+print(len(df['type']))
+print(len(page_link))
 print(df.head())
