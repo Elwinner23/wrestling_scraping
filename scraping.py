@@ -30,14 +30,18 @@ data = []
 video_link = []
 wb = Workbook()
 ws = wb.active
+# web sehfeden datanin liste elave edilmesi
 for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
     row = [item.text for item in table_div.find_elements(By.CLASS_NAME,'text')]
     data.append(row) 
-# elem = driver.find_element(By.CLASS_NAME,'table-body')
-# link = elem[0].get_attribute('href')    
-        
-# wb.save('wrestling_data.xlsx')
+# Video linklerin liste yigilmasi   
+for a in driver.find_elements(By.CLASS_NAME,'table-row'):
+    link = a.get_attribute('href')
+    video_link.append(link)
+print(video_link)    
     
+# wb.save('wrestling_data.xlsx')
+# var olan datani tek-tek listlere ayirmaq   
 def split_list(chunk_size):
     chunks = []
     for i in range(0,len(data)):
@@ -47,6 +51,6 @@ def split_list(chunk_size):
     print(chunks)
 
 chunk_size = 5
-# split_list(chunk_size)
-print(link)
+split_list(chunk_size)
+
    
