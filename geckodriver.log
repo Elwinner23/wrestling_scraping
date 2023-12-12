@@ -194,215 +194,39 @@ c@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:648:
 nq@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:415:298
 mq.prototype.flush1702283315320	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702294401690	Marionette	INFO	Stopped listening on port 63474
-Dynamically enable window occlusion 1
-2283292151	Marionette	INFO	Stopped listening on port 63386
-Dynamically enable window occlusion 1
-1702294136440	geckodriver	INFO	Listening on 127.0.0.1:60739
-1702294139464	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60740" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofileviufA5"
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702294139894	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702294139987	Marionette	INFO	Listening on port 60748
-WebDriver BiDi listening on ws://127.0.0.1:60740
-Read port: 60748
-1702294140189	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:60740/devtools/browser/9e635b55-3590-45b2-8af4-09624ac40a74
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702294170823	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
-TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
-onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
-_emit@resource://devtools/shared/event-emitter.js:242:32
-emit@resource://devtools/shared/event-emitter.js:186:18
-emit@resource://devtools/shared/event-emitter.js:330:18
-getMutations@resource://devtools/client/fronts/walker.js:309:10
-
-console.error: "Unable to find target with innerWindowId:6442450945"
-console.error: "Unable to find target with innerWindowId:6442450945"
-JavaScript warning: https://uww.org/event/ivan-poddubny-1/results, line 144: unreachable code after return statement
-JavaScript warning: https://uww.org/event/ivan-poddubny-1/results, line 144: unreachable code after return statement
-console.error: "Unable to find target with innerWindowId:6442450945"
-console.error: "Unable to find target with innerWindowId:6442450945"
-JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
-JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
-JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
-JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
-JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702294402401	Marionette	INFO	Stopped listening on port 60748
-Dynamically enable window occlusion 1
-
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702294398257	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702294398328	Marionette	INFO	Listening on port 60973
-WebDriver BiDi listening on ws://127.0.0.1:60964
-Read port: 60973
-1702294398500	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:60964/devtools/browser/f099d434-6c8d-4857-b8fb-2143f5329e48
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702294429030	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702294649768	Marionette	INFO	Stopped listening on port 60973
-Dynamically enable window occlusion 1
-
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702294605822	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702294605891	Marionette	INFO	Listening on port 61149
-WebDriver BiDi listening on ws://127.0.0.1:61140
-Read port: 61149
-1702294606057	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61140/devtools/browser/188cccd7-1205-4cd8-919d-abf4eb720ca1
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702294636617	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c, line 171: Script terminated by timeout at:
-l@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:171:17
-mA@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:549:134
-nA/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:549:111
-
-1702294651358	Marionette	INFO	Stopped listening on port 61149
-Dynamically enable window occlusion 1
-LS=1 in the environment
-1702294646944	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702294647016	Marionette	INFO	Listening on port 61236
-WebDriver BiDi listening on ws://127.0.0.1:61227
-Read port: 61236
-1702294647180	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61227/devtools/browser/713808c7-5474-4458-800b-9f8d7f364be6
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702294678850	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702294687749	Marionette	INFO	Stopped listening on port 61236
-Dynamically enable window occlusion 1
-
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702294682612	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702294682686	Marionette	INFO	Listening on port 61322
-WebDriver BiDi listening on ws://127.0.0.1:61311
-Read port: 61322
-1702294682854	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61311/devtools/browser/b16765b4-1669-4ba7-98c2-3abb48ea7718
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702294713310	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c, line 418: Script terminated by timeout at:
-mq.prototype.flush@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:418:440
-lG/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:649:142
+ger.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:413:789
+lG/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:649:178
 aa.Jk/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:600:126
 aa.Jk/c/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:599:420
 
-JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 573: NotFoundError: No such JSWindowActor 'DevToolsFrame'
-1702294982809	Marionette	INFO	Stopped listening on port 61322
+1702283292151	Marionette	INFO	Stopped listening on port 63386
 Dynamically enable window occlusion 1
-1702295041576	geckodriver	INFO	Listening on 127.0.0.1:61565
-1702295044607	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61566" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofilelnB98N"
+1702380112227	geckodriver	INFO	Listening on 127.0.0.1:57396
+1702380115288	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57397" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofileXSSekZ"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702295044959	Marionette	INFO	Marionette enabled
+1702380115700	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1702295045030	Marionette	INFO	Listening on port 61574
-WebDriver BiDi listening on ws://127.0.0.1:61566
-Read port: 61574
-1702295045174	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61566/devtools/browser/b805a3bd-9912-4415-8004-405b691df7fc
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702295076840	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript error: , line 0: uncaught exception: error
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702295335218	Marionette	INFO	Stopped listening on port 61574
-Dynamically enable window occlusion 1
-
+1702380115773	Marionette	INFO	Listening on port 57406
+WebDriver BiDi listening on ws://127.0.0.1:57397
+Read port: 57406
+1702380115938	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57397/devtools/browser/deccc8dc-bfba-43ff-b636-0aba91d7aef5
+JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
+JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
+1702380145724	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
+1702380509753	geckodriver	INFO	Listening on 127.0.0.1:57709
+1702380512781	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57710" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofileosWjdi"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702295262287	Marionette	INFO	Marionette enabled
+1702380513185	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1702295262382	Marionette	INFO	Listening on port 61765
-WebDriver BiDi listening on ws://127.0.0.1:61757
-Read port: 61765
-1702295262589	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61757/devtools/browser/4705ec10-be32-496d-aed2-caf746341a2f
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702295293032	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702295336912	Marionette	INFO	Stopped listening on port 61765
-Dynamically enable window occlusion 1
-EVTOOLS=1 in the environment
-1702295292038	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702295292110	Marionette	INFO	Listening on port 61844
-WebDriver BiDi listening on ws://127.0.0.1:61834
-Read port: 61844
-1702295292333	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61834/devtools/browser/04accbf7-9da4-432c-a10f-b527c0d3c3d3
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702295322069	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-JavaScript warning: https://connect.facebook.net/en_US/fbevents.js, line 24: Script terminated by timeout at:
-value@https://connect.facebook.net/en_US/fbevents.js:24:7878
-@https://connect.facebook.net/en_US/fbevents.js:24:69164
-
-1702295338396	Marionette	INFO	Stopped listening on port 61844
-Dynamically enable window occlusion 1
-
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702295328824	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702295328910	Marionette	INFO	Listening on port 61931
-WebDriver BiDi listening on ws://127.0.0.1:61922
-Read port: 61931
-1702295329146	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:61922/devtools/browser/b6d1f328-2a05-4fad-8cf3-c51445e48047
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702295359694	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-1702295460247	geckodriver	INFO	Listening on 127.0.0.1:62061
-1702295463308	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62062" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofilepyXJEn"
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1702295463617	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1702295463690	Marionette	INFO	Listening on port 62072
-WebDriver BiDi listening on ws://127.0.0.1:62062
-Read port: 62072
-1702295463854	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:62062/devtools/browser/95d20988-a5fa-495c-88e5-83b885f5a200
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-JavaScript warning: https://uww.org/events, line 175: unreachable code after return statement
-1702295494292	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1702380513279	Marionette	INFO	Listening on port 57719
+WebDriver BiDi listening on ws://127.0.0.1:57710
+Read port: 57719
+1702380513495	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57710/devtools/browser/d6f05d93-1752-4779-a6c1-33e13a511753
+JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
+JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
+1702380543944	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
