@@ -19,6 +19,7 @@ world_championship = driver.find_element(By.XPATH, '/html/body/div/div/div/div/m
 world_championship.click()
 select_list = world_championship.find_element(By.CLASS_NAME,'select-list')
 count=0
+
 for li in select_list.find_elements(By.TAG_NAME, 'li'):
     button = li.find_element(By.TAG_NAME, 'button')
     if button.text in years:
@@ -35,16 +36,8 @@ for li in select_list.find_elements(By.TAG_NAME, 'li'):
             else:
                 page_link.append(link)
                 year.append(years[count])
-      count+=1    
-    world_championship.click()
-
-              
-
-
-
-# Within the table, find all elements with the class name 'event-title'
-# wb = Workbook()
-# ws = wb.active
+      count+=1     
+      world_championship.click()
 
 # wb.save('wrestling_data.xlsx')
 # var olan datani tek-tek listlere ayirmaq   
@@ -58,27 +51,21 @@ def split_list(chunk_size):
 
 chunk_size = 5
 # print(page_link)
+# def dataset(pl,yr):
+#     tournament_name = []
+#     location = []
+#     type = []
+#     age = []
+#     style = []
+#     data_read = split_list(chunk_size)
+#     for data in data_read:
+#         tournament_name.append(data[0])
+#         location.append(data[1])
+#         type.append(data[2])
+#         age.append(data[3])
+#         style.append(data[4])
+#     df = pd.DataFrame({'tournament_name' : tournament_name, 'location' : location, 'type' : type, 'age' : age, 'style' : style, 'page_link' : pl, 'year' : yr})
+#     return df
 
-# def tournament_page(url):
-#     driver.get(url)
-# print(len(page_link),len(year),len(data),len(chunks))
-
-
-def dataset(pl,yr):
-    tournament_name = []
-    location = []
-    type = []
-    age = []
-    style = []
-    data_read = split_list(chunk_size)
-    for data in data_read:
-        tournament_name.append(data[0])
-        location.append(data[1])
-        type.append(data[2])
-        age.append(data[3])
-        style.append(data[4])
-    df = pd.DataFrame({'tournament_name' : tournament_name, 'location' : location, 'type' : type, 'age' : age, 'style' : style, 'page_link' : pl, 'year' : yr})
-    return df
-
-df = dataset(page_link,year)
-df.to_excel('data.xlsx', index = False)
+# df = dataset(page_link,year)
+# df.to_excel('data.xlsx', index = False)
