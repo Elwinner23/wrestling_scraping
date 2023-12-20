@@ -7,7 +7,7 @@ import time
 import re
 
 driver = webdriver.Firefox()
-excel_file_path = r'C:\Users\TARIEL\Desktop\wrestling_scraping\data.xlsx'
+excel_file_path = r'C:\Users\TARIEL\Desktop\wrestling_scraping\results.xlsx'
 sheet_name = 'Sheet1'
 column_name = 'page_link'
 df = pd.read_excel(excel_file_path, sheet_name=sheet_name)
@@ -95,8 +95,6 @@ def get_filter_style():
 # print(len(countries),countries,len(data))
 
 
-
-
 def tournament_page():
     for i in column_data:
         if i.endswith('results'):
@@ -107,9 +105,9 @@ def open_tournament_page():
     pages = tournament_page()
     for page in pages:
         driver.get(page)
+        driver.execute_script("window.scrollTo(0, 150)")
         time.sleep(2)
         get_filter_style()
-        # tournament date
         swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
         event_content_locator = swiper_wrapper.find_element(By.CLASS_NAME, 'event-content')
         venue_info = event_content_locator.find_element(By.CLASS_NAME,'venue-info')
