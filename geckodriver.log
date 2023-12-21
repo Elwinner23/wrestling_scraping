@@ -230,3 +230,50 @@ DevTools listening on ws://127.0.0.1:57710/devtools/browser/d6f05d93-1752-4779-a
 JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
 JavaScript warning: https://uww.org/events, line 481: unreachable code after return statement
 1702380543944	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1703145740602	geckodriver	INFO	Listening on 127.0.0.1:50556
+1703145748488	geckodriver	INFO	Listening on 127.0.0.1:50565
+1703145751535	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50566" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofiletOdnuC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703145751918	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1703145751993	Marionette	INFO	Listening on port 50574
+WebDriver BiDi listening on ws://127.0.0.1:50566
+Read port: 50574
+1703145752194	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50566/devtools/browser/e9834c52-5881-4223-8269-0df06266f358
+JavaScript warning: https://uww.org/event/klippan-lady-open-4/results, line 144: unreachable code after return statement
+JavaScript warning: https://uww.org/event/klippan-lady-open-4/results, line 144: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c, line 627: Script terminated by timeout at:
+WF@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:627:33
+aa.Jm@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:628:421
+c@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:648:678
+nq@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:415:298
+mq.prototype.flush@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:418:263
+mq.prototype.push@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:416:207
+fq@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:413:789
+lG/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:649:178
+aa.Jk/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:600:126
+aa.Jk/c/<@https://www.googletagmanager.com/gtag/js?id=G-ZDLSR2WZCG&l=dataLayer&cx=c:599:420
+
+1703145764423	Marionette	INFO	Stopped listening on port 50574
+Dynamically enable window occlusion 1
+1703145766502	geckodriver	INFO	Listening on 127.0.0.1:50634
+1703145769537	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50635" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\elwin\\AppData\\Local\\Temp\\rust_mozprofilea4LCkL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1703145769844	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1703145769910	Marionette	INFO	Listening on port 50642
+WebDriver BiDi listening on ws://127.0.0.1:50635
+Read port: 50642
+1703145770059	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50635/devtools/browser/a00afc30-3229-4990-b1e5-7a0fbaa87c93
+JavaScript warning: https://uww.org/event/klippan-lady-open-4/results, line 144: unreachable code after return statement
+JavaScript warning: https://uww.org/event/klippan-lady-open-4/results, line 144: unreachable code after return statement
+1703145800016	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+console.error: services.settings: 
+  main/search-config-v2 Signature failed  InvalidSignatureError: Invalid content signature (main/search-config-v2) using 'remote-settings.content-signature.mozilla.org-2024-01-19-16-42-21.chain'
+console.error: services.settings: 
+  main/search-config-v2 local data was corrupted
+console.warn: services.settings: main/search-config-v2 Signature verified failed. Retry from scratch
