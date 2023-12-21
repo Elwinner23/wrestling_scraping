@@ -6,7 +6,23 @@ import time
 driver = webdriver.Firefox()
 url = 'https://uww.org/events'
 driver.get(url)
+from selenium.webdriver.common.by import By
+import pandas as pd
+import time 
+
+driver = webdriver.Firefox()
+url = 'https://uww.org/events'
+driver.get(url)
 years = ['2018', '2019', '2020', '2021', '2022']
+year = []
+data = []
+page_link = []
+# tournament_select = driver.find_element(By.CLASS_NAME, 'waf-select-box')
+# tournament_select.click()
+main_table = driver.find_element(By.CLASS_NAME,'table-responsive')
+table_wrapper = main_table.find_element(By.CLASS_NAME,'table-wrapper')
+element_table = table_wrapper.find_element(By.XPATH,'/html/body/div/div/div/div/main/section[4]/section[3]/div/div/div/div/section/div/div/div[2]/div[2]/div[1]')
+world_championship = driver.find_element(By.XPATH, '/html/body/div/div/div/div/main/section[4]/section[3]/div/div/div/div/section/div/div/div[2]/div[1]/div/div[2]/div[1]/div[5]')
 year = []
 data = []
 page_link = []
@@ -21,21 +37,20 @@ select_list = world_championship.find_element(By.CLASS_NAME,'select-list')
 count=0
 for li in select_list.find_elements(By.TAG_NAME, 'li'):
     button = li.find_element(By.TAG_NAME, 'button')
-    if button.text in years:
-      button.click()
+    button.click()
       # web sehfeden datanin liste elave edilmesi
-      for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
-            row = [item.text for item in table_div.find_elements(By.CLASS_NAME,'text')]
-            data.append(row) 
+    for table_div in main_table.find_elements(By.CLASS_NAME,'table-body'):
+        row = [item.text for item in table_div.find_elements(By.CLASS_NAME,'text')]
+        data.append(row) 
         # Video linklerin liste yigilmasi       
-      for a in driver.find_elements(By.CLASS_NAME,'table-row'):
-            link = a.get_attribute('href')
-            if link == None:
-                continue
-            else:
-                page_link.append(link)
-                year.append(years[count])
-      count+=1    
+    for a in driver.find_elements(By.CLASS_NAME,'table-row'):
+        link = a.get_attribute('href')
+        if link == None:
+            continue
+        else:
+            page_link.append(link)
+            year.append(years[count])
+    count+=1    
     world_championship.click()
 
               
