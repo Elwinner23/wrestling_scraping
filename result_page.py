@@ -7,15 +7,14 @@ import time
 import re
 
 driver = webdriver.Firefox()
-excel_file_path = r'C:\Users\TARIEL\Desktop\wrestling_scraping\results.xlsx'
 sheet_name = 'Sheet1'
 column_name = 'page_link'
-df = pd.read_excel(excel_file_path, sheet_name=sheet_name)
+df = pd.read_excel('data.xlsx', sheet_name=sheet_name)
 column_data = df[column_name]
 result_page_url = []
 tournament_date_name = []
 list_style = ["Freestyle", "Greco-Roman", "Women's wrestling"]
-# driver.get('https://uww.org/event/klippan-lady-open-4/results')
+driver.get('https://uww.org/event/klippan-lady-open-4/results')
 time.sleep(2)
 data = []
 weight = []
@@ -45,6 +44,7 @@ def stage(count):
             card_status = card_content.find_element(By.CLASS_NAME,'status')
             items.append(card_status.text)    
             data.append(items)
+    
 
 def get_filter_weight():
     count=0
@@ -90,10 +90,55 @@ def get_filter_style():
         select_box.click()
     select_box.click()
 
+    return data
 
-# get_filter_style()
+
+df =  get_filter_style()
 # print(len(countries),countries,len(data))
 
+print(df[:4])
+print(countries[:4])
+
+
+def meetings_table(df, country_list):
+    current_category = df[0]
+    style = []
+    stage = []
+    weight = []
+    opponent1 = []
+    opponent1_points = []
+    opponent2 = []
+    opponent2_points = []
+    decision = []
+    opponent1_country = []
+    opponent2_country = []
+    for x in range(len(country_list)):
+        if x % 2 == 0:
+            opponent1_country.append(country_list[x])
+        else:
+            opponent2_country.append(country_list[x])
+
+    for i in range(1, len(df)):
+        if (type(i) == str) and i != current_category:
+            current_category = i
+            continue
+        style.append(current_category)
+        stage.append(df[i][0])
+        weight.append(df[i][1])
+        opponent1.append(df[i][2])
+        opponent1_points.append(df[i][3])
+        opponent2.append(df[i][4])
+        opponent2_points.append(df[i][5])
+        decision.append(df[i][6])
+    
+    final_df = pd.DataFrame({'style' : style, 'stage' : stage, 'weight' : weight, 'opponent1' : opponent1, 
+                             'opponent1_points' : opponent1_points, 'opponent2' : opponent2, 
+                             'opponent2_points' : opponent2_points, 'decision' : decision})
+    return final_df
+
+
+df = meetings_table(data, countries)      
+df.to_excel('meetings.xlsx', index = False)
 
 def tournament_page():
     for i in column_data:
@@ -105,9 +150,9 @@ def open_tournament_page():
     pages = tournament_page()
     for page in pages:
         driver.get(page)
-        driver.execute_script("window.scrollTo(0, 150)")
         time.sleep(2)
         get_filter_style()
+        # tournament date
         swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
         event_content_locator = swiper_wrapper.find_element(By.CLASS_NAME, 'event-content')
         venue_info = event_content_locator.find_element(By.CLASS_NAME,'venue-info')
@@ -115,4 +160,5 @@ def open_tournament_page():
         name = (event_content_locator.find_element(By.TAG_NAME,'h3')).text
         tournament_date_name.append(date)
         tournament_date_name.append(name)
-open_tournament_page()
+#open_tournament_page()
+        
