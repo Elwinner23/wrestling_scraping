@@ -15,12 +15,17 @@ column_data = df[column_name]
 result_page_url = []
 tournament_date_name = []
 list_style = ["Freestyle", "Greco-Roman", "Women's wrestling"]
-# driver.get('https://uww.org/event/klippan-lady-open-4/results')
+driver.get('https://uww.org/event/takhti-cup-3/results')
+driver.execute_script("window.scrollTo(0, 150)")
 time.sleep(2)
 data = []
 weight = []
 countries =[]
-# tabs_container = driver.find_element(By.CLASS_NAME, 'tabs-container')
+swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
+event_content_locator = swiper_wrapper.find_element(By.CLASS_NAME, 'event-content')
+venue_info = event_content_locator.find_element(By.CLASS_NAME,'venue-info')
+date = (venue_info.find_element(By.CLASS_NAME,'meta')).text
+name = (event_content_locator.find_element(By.TAG_NAME,'h3')).text
 
 def stage(count):
     tabs_container_wrap = driver.find_element(By.CLASS_NAME, 'tabs-container-wrap')
@@ -33,6 +38,8 @@ def stage(count):
             card_content =content_wrapper.find_element(By.CLASS_NAME,'card-content')
             items.append(title.text)
             items.append(weight[count])
+            items.append(date)
+            items.append(name)
             for i in card_content.find_elements(By.CLASS_NAME,'card-item'):
                 card_info = i.find_element(By.TAG_NAME,'span')
                 items.append(card_info.text)
@@ -92,7 +99,7 @@ def get_filter_style():
 
 
 # get_filter_style()
-# print(len(countries),countries,len(data))
+print(data[:5])
 
 
 def tournament_page():
@@ -105,7 +112,6 @@ def open_tournament_page():
     pages = tournament_page()
     for page in pages:
         driver.get(page)
-        driver.execute_script("window.scrollTo(0, 150)")
         time.sleep(2)
         get_filter_style()
         swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
@@ -115,4 +121,51 @@ def open_tournament_page():
         name = (event_content_locator.find_element(By.TAG_NAME,'h3')).text
         tournament_date_name.append(date)
         tournament_date_name.append(name)
-open_tournament_page()
+# open_tournament_page()
+df =  get_filter_style()
+def meetings_table(df, country_list):
+    current_category = df[0]
+    style = []
+    stage = []
+    weight = []
+    opponent1 = []
+    opponent1_points = []
+    opponent2 = []
+    opponent2_points = []
+    decision = []
+    opponent1_country = []
+    opponent2_country = []
+    tournament_date = []
+    tournament_name = []
+    for x in range(len(country_list)):
+        if x % 2 == 0:
+            opponent1_country.append(country_list[x])
+        else:
+            opponent2_country.append(country_list[x])
+
+    for i in range(1, len(df)):
+        if (type(i) == str) and i != current_category:
+            current_category = i
+            continue
+        style.append(current_category)
+        stage.append(df[i][0])
+        weight.append(df[i][1])
+        opponent1.append(df[i][6])
+        opponent1_points.append(df[i][7])
+        opponent2.append(df[i][4])
+        opponent2_points.append(df[i][5])
+        decision.append(df[i][8])
+        tournament_date.append(df[i][2])
+        tournament_name.append(df[i][3])
+    
+    final_df = pd.DataFrame({'tournament_name': tournament_name,'tournament_date': tournament_date,
+                             'style' : style, 'stage' : stage, 'weight' : weight, 'opponent1' : opponent1,
+                             'opponent1_country': opponent1_country,
+                             'opponent1_points' : opponent1_points,'opponent2_points' : opponent2_points,
+                             'opponent2' : opponent2,'opponent2_country': opponent2_country,
+                             'decision' : decision})
+    return final_df
+
+
+df = meetings_table(data, countries)      
+df.to_excel('takhti.xlsx', index = False)
