@@ -12,13 +12,10 @@ sheet_name = 'Sheet1'
 column_name = 'page_link'
 df = pd.read_excel(excel_file_path, sheet_name=sheet_name)
 column_data = df[column_name]
-result_page_url = []
-tournament_date_name = []
 list_style = ["Freestyle", "Greco-Roman", "Women's wrestling"]
-time.sleep(2)
 weight = []
 countries = []
-styles = []
+time.sleep(2)
 # driver.get('https://uww.org/event/african-championships-0/results')
 # driver.execute_script("window.scrollTo(0, 150)")
 # swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
@@ -27,7 +24,7 @@ styles = []
 # date = (venue_info.find_element(By.CLASS_NAME,'meta')).text
 # name = (event_content_locator.find_element(By.TAG_NAME,'h3')).text
     
-def stage(count,data,countries,index,weight):
+def stage(count,data,countries,index,weight,styles):
     tabs_container_wrap = driver.find_element(By.CLASS_NAME, 'tabs-container-wrap')
     for div in tabs_container_wrap.find_elements(By.CLASS_NAME, 'tabs-container-group'):
         title = div.find_element(By.TAG_NAME,'h3')
@@ -55,7 +52,7 @@ def stage(count,data,countries,index,weight):
             if items not in data:    
                 data.append(items)
 
-def get_filter_weight(data,countries,index,count,weight):
+def get_filter_weight(data,countries,index,count,weight,styles):
     filter_label_group = driver.find_element(By.CLASS_NAME, 'filter-label-group')
     filter_ul = filter_label_group.find_element(By.TAG_NAME, 'ul')
     for li in filter_ul.find_elements(By.TAG_NAME, 'li'):
@@ -66,15 +63,15 @@ def get_filter_weight(data,countries,index,count,weight):
             # Use ActionChains to perform the click action
             ActionChains(driver).move_to_element(li).click().perform()
             weight.append(span.text)
-            time.sleep(2)
-            stage(count,data,countries,index,weight)
+            time.sleep(1)
+            stage(count,data,countries,index,weight,styles)
             count+=1
         except StaleElementReferenceException:
             # If StaleElementReferenceException occurs, re-locate the element and retry
             li = filter_ul.find_element(By.TAG_NAME, 'li')
             ActionChains(driver).move_to_element(li).click().perform()
             weight.append(span.text)
-            stage(count,data,countries,index,weight) 
+            stage(count,data,countries,index,weight,styles) 
             count+=1   
 
 def get_filter_style():
@@ -83,7 +80,7 @@ def get_filter_style():
     select_box = driver.find_element(By.CLASS_NAME, 'waf-select-box')
     select_box.click()
     select_list = select_box.find_element(By.CLASS_NAME, 'select-list')
-
+    styles =[]
     data = []  # Initialize the data list
     countries = []  # Initialize the countries list
     for li in select_list.find_elements(By.TAG_NAME, 'li'):
@@ -96,18 +93,17 @@ def get_filter_style():
                 # Use ActionChains to perform the click action
                 ActionChains(driver).move_to_element(button).click().perform()
                 weight = []
-                get_filter_weight(data, countries,index,count,weight)
+                get_filter_weight(data, countries,index,count,weight,styles)
                 index +=1
             except StaleElementReferenceException:
                 # If StaleElementReferenceException occurs, re-locate the element and retry
                 button = select_list.find_element(By.TAG_NAME, 'button')
                 ActionChains(driver).move_to_element(button).click().perform()
                 weight = []
-                get_filter_weight(data, countries,index,count,weight)
+                get_filter_weight(data, countries,index,count,weight,styles)
                 index +=1
         select_box.click()        
     select_box.click()
-    print(count)
     return data, countries
 
 def meetings_table(df, country_list):
@@ -141,7 +137,7 @@ def meetings_table(df, country_list):
         tournament_date.append(df[i][3])
         tournament_name.append(df[i][4])
            
-    print(df[:5],len(style),len(stage),len(weight),len(opponent1),len(opponent2),len(tournament_name),len(tournament_date),len(opponent1_country),
+    print(df,len(style),len(stage),len(weight),len(opponent1),len(opponent2),len(tournament_name),len(tournament_date),len(opponent1_country),
           len(opponent2_country),len(opponent1_points),len(opponent2_points),len(decision))
     final_df = pd.DataFrame({'tournament_name': tournament_name,'tournament_date': tournament_date,
                              'style' : style, 'stage' : stage, 'weight' : weight, 'opponent1' : opponent1,
@@ -154,14 +150,22 @@ def meetings_table(df, country_list):
 # df_data, countries_data = get_filter_style()  # Get the returned data and countries
 # df = meetings_table(df_data, countries_data)     
 # df.to_excel('meeting2.xlsx', index = False)
-for page in column_data:
-    driver.get(page)
-    driver.execute_script("window.scrollTo(0, 150)")
+final_dataframe =pd.DataFrame(columns = ['tournament_name','tournament_date',
+                             'style' , 'stage', 'weight', 'opponent1',
+                             'opponent1_country',
+                             'opponent1_points','opponent2_points',
+                             'opponent2','opponent2_country',
+                             'decision'])
+for i in range(7,9):
+    driver.get(column_data[i])
+    driver.execute_script("window.scrollTo(0, 250)")
     swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
     event_content_locator = swiper_wrapper.find_element(By.CLASS_NAME, 'event-content')
     venue_info = event_content_locator.find_element(By.CLASS_NAME,'venue-info')
     date = (venue_info.find_element(By.CLASS_NAME,'meta')).text
     name = (event_content_locator.find_element(By.TAG_NAME,'h3')).text
     df_data, countries_data = get_filter_style()  # Get the returned data and countries
-    df = meetings_table(df_data, countries_data)     
-df.to_excel('meeting.xlsx', index = False)
+    df = meetings_table(df_data, countries_data) 
+    final_dataframe = pd.concat([final_dataframe,df],axis=0)
+final_dataframe.to_excel('meeting7_9.xlsx', index = False)
+       

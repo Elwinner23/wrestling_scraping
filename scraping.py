@@ -97,3 +97,4 @@ chunk_size = 5
 #         tournament_date_name.append(date)
 #         tournament_date_name.append(name)
 # # open_tournament_page()
+
