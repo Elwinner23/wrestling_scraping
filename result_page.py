@@ -156,7 +156,7 @@ final_dataframe =pd.DataFrame(columns = ['tournament_name','tournament_date',
                              'opponent1_points','opponent2_points',
                              'opponent2','opponent2_country',
                              'decision'])
-for i in range(7,9):
+for i in range(54,57):
     driver.get(column_data[i])
     driver.execute_script("window.scrollTo(0, 250)")
     swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
@@ -167,5 +167,5 @@ for i in range(7,9):
     df_data, countries_data = get_filter_style()  # Get the returned data and countries
     df = meetings_table(df_data, countries_data) 
     final_dataframe = pd.concat([final_dataframe,df],axis=0)
-final_dataframe.to_excel('meeting7_9.xlsx', index = False)
+final_dataframe.to_excel('meeting54_57.xlsx', index = False)
        
