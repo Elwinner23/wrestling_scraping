@@ -74,26 +74,37 @@ def split_list(chunk_size):
 chunk_size = 5
 # print(page_link)
 
-# def tournament_page(url):
-#     driver.get(url)
-# print(len(page_link),len(year),len(data),len(chunks))
+# df = dataset(page_link,year)
+# df.to_excel('data.xlsx', index = False)
 
 
-def dataset(pl,yr):
-    tournament_name = []
-    location = []
-    type = []
-    age = []
-    style = []
-    data_read = split_list(chunk_size)
-    for data in data_read:
-        tournament_name.append(data[0])
-        location.append(data[1])
-        type.append(data[2])
-        age.append(data[3])
-        style.append(data[4])
-    df = pd.DataFrame({'tournament_name' : tournament_name, 'location' : location, 'type' : type, 'age' : age, 'style' : style, 'page_link' : pl, 'year' : yr})
-    return df
+
+
+# # get_filter_style()
+
+
+
+# def tournament_page():
+#     for i in column_data:
+#         if i.endswith('results'):
+#             result_page_url.append(i)
+#     return result_page_url
+
+# def open_tournament_page():
+#     pages = tournament_page()
+#     for page in pages:
+#         driver.get(page)
+#         time.sleep(2)
+#         get_filter_style()
+#         swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
+#         event_content_locator = swiper_wrapper.find_element(By.CLASS_NAME, 'event-content')
+#         venue_info = event_content_locator.find_element(By.CLASS_NAME,'venue-info')
+#         date = (venue_info.find_element(By.CLASS_NAME,'meta')).text
+#         name = (event_content_locator.find_element(By.TAG_NAME,'h3')).text
+#         tournament_date_name.append(date)
+#         tournament_date_name.append(name)
+# # open_tournament_page()
+
 
 df = dataset(page_link,year)
 df.to_excel('data.xlsx', index = False)
