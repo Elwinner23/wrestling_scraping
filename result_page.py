@@ -12,12 +12,12 @@ sheet_name = 'Sheet1'
 column_name = 'page_link'
 df = pd.read_excel(excel_file_path, sheet_name=sheet_name)
 column_data = df[column_name]
-list_style = ["Freestyle", "Greco-Roman", "Women's wrestling"]
+# driver.get('https://uww.org/event/klippan-lady-open-4/results')
+# driver.execute_script("window.scrollTo(0, 250)")
+list_style = ["Women's wrestling"]
 weight = []
 countries = []
 time.sleep(2)
-# driver.get('https://uww.org/event/african-championships-0/results')
-# driver.execute_script("window.scrollTo(0, 150)")
 # swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
 # event_content_locator = swiper_wrapper.find_element(By.CLASS_NAME, 'event-content')
 # venue_info = event_content_locator.find_element(By.CLASS_NAME,'venue-info')
@@ -33,6 +33,9 @@ def stage(count,data,countries,index,weight,styles):
             items = []
             content_wrapper = item.find_element(By.CLASS_NAME,'content-wrapper')
             card_content =content_wrapper.find_element(By.CLASS_NAME,'card-content')
+            card_action = content_wrapper.find_element(By.CLASS_NAME,'card-action')
+            a = card_action.find_element(By.TAG_NAME,'a')
+            link = a.get_attribute('href')
             items.append(styles[index])
             items.append(title.text)
             items.append(weight[count])
@@ -41,14 +44,22 @@ def stage(count,data,countries,index,weight,styles):
             for i in card_content.find_elements(By.CLASS_NAME,'card-item'):
                 card_info = i.find_element(By.TAG_NAME,'span')
                 items.append(card_info.text)
-                img = i.find_element(By.CLASS_NAME,'logo')
-                img_src = img.get_attribute('data-src')
-                country = re.findall(r'/\w+/(\w+)\.png',img_src)
-                countries.append(country[0])
+                try:
+                    img = i.find_element(By.CLASS_NAME,'logo')
+                    img_src = img.get_attribute('data-src')
+                    country = re.findall(r'/\w+/(\w+)\.png',img_src)
+                    countries.append(country[0])
+                except:
+                    countries.append('undefined')
                 card_number = i.find_element(By.CLASS_NAME,'card-number')
                 items.append(card_number.text)
-            card_status = card_content.find_element(By.CLASS_NAME,'status')
-            items.append(card_status.text)
+            card_status = card_content.find_element(By.CLASS_NAME,'card-status')
+            try:
+                 status = card_status.find_element(By.CLASS_NAME,'status')
+                 items.append(status.text)
+            except:
+                items.append('no status')
+            items.append(link)
             if items not in data:    
                 data.append(items)
 
@@ -119,6 +130,7 @@ def meetings_table(df, country_list):
     opponent2_country = []
     tournament_date = []
     tournament_name = []
+    action_page_link = []
     for x in range(len(country_list)):
         if x % 2 == 0:
             opponent1_country.append(country_list[x])
@@ -136,27 +148,29 @@ def meetings_table(df, country_list):
         decision.append(df[i][9])
         tournament_date.append(df[i][3])
         tournament_name.append(df[i][4])
+        action_page_link.append(df[i][10])
            
     print(df,len(style),len(stage),len(weight),len(opponent1),len(opponent2),len(tournament_name),len(tournament_date),len(opponent1_country),
-          len(opponent2_country),len(opponent1_points),len(opponent2_points),len(decision))
+          len(opponent2_country),len(opponent1_points),len(opponent2_points),len(decision),len(action_page_link))
+    print(len(country_list))
     final_df = pd.DataFrame({'tournament_name': tournament_name,'tournament_date': tournament_date,
                              'style' : style, 'stage' : stage, 'weight' : weight, 'opponent1' : opponent1,
                              'opponent1_country': opponent1_country,
                              'opponent1_points' : opponent1_points,'opponent2_points' : opponent2_points,
                              'opponent2' : opponent2,'opponent2_country': opponent2_country,
-                             'decision' : decision})
+                             'decision' : decision,'links':action_page_link})
     return final_df
 
 # df_data, countries_data = get_filter_style()  # Get the returned data and countries
 # df = meetings_table(df_data, countries_data)     
 # df.to_excel('meeting2.xlsx', index = False)
-final_dataframe =pd.DataFrame(columns = ['tournament_name','tournament_date',
+final_dataframe=pd.DataFrame(columns = ['tournament_name','tournament_date',
                              'style' , 'stage', 'weight', 'opponent1',
                              'opponent1_country',
                              'opponent1_points','opponent2_points',
                              'opponent2','opponent2_country',
-                             'decision'])
-for i in range(55,56):
+                             'decision','links'])
+for i in range(38,39):                      #9,39,56 ,58,70 da status yoxdu 67,75,76,78,98,113 de olke sekli scor yoxdu
     driver.get(column_data[i])
     driver.execute_script("window.scrollTo(0, 250)")
     swiper_wrapper = driver.find_element(By.CLASS_NAME, 'swiper-wrapper')
@@ -167,5 +181,6 @@ for i in range(55,56):
     df_data, countries_data = get_filter_style()  # Get the returned data and countries
     df = meetings_table(df_data, countries_data) 
     final_dataframe = pd.concat([final_dataframe,df],axis=0)
-final_dataframe.to_excel('meeting55_56.xlsx', index = False)
+final_dataframe.to_excel('meeting40_woman.xlsx', index = False)
        
+    # 124,136,150,151   
